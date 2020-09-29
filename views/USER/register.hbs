@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">   
+           <h2> SIGN UP </h2>
+           <div>
+                 {{# if hasErrors }}
+                    <div class="alert alert-danger">
+                        {{#each messages}}
+                            {{this}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+           </div>
+         
+        <form action="/user/register" method="POST" class="form">
+            
+                <div class="name">
+                    <input type="text" placeholder="username" name="username" id="username">
+                <label for=""> username</label>
+                </div>
+
+                <div class="email">
+                    <input type="text" placeholder="email" id="email" name="email">
+                <label for=""> email</label>
+                </div>
+
+                
+                <div class="password">
+                    <input type="text" placeholder="password" id="password" name="password">
+                    <label for=""> password </label>
+                </div>
+                <input type="hidden" value="{{ csurfToken }}" name="_csrf" id="">
+                <button type="submit" value="OK"> Sign Up </button>
+                
+
+      
+        </form>
+                    registered?
+                <a href="/user/login"> Login</a>
+        
+    </div>
+</body>
+</html>
